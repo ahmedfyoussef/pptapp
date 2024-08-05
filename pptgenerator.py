@@ -32,7 +32,6 @@ def generate_slide_content(slide_title):
    
     return prompt
  
-
 def create_presentation(topic, slide_titles, slide_contents):
     prs = pptx.Presentation()
     slide_layout = prs.slide_layouts[1]
@@ -49,14 +48,13 @@ def create_presentation(topic, slide_titles, slide_contents):
 
 
 def get_ppt_download_link(topic):
-    ppt_filename = f"/{topic}_presentation.pptx"
+    ppt_filename = f"{topic}_presentation.pptx"
 
     with open(ppt_filename, "rb") as file:
         ppt_contents = file.read()
 
     b64_ppt = base64.b64encode(ppt_contents).decode()
     return f'<a href="data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,{b64_ppt}" download="{ppt_filename}">Download the PowerPoint Presentation</a>'
-
 
 
 
