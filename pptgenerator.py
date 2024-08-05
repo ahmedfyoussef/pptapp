@@ -54,8 +54,7 @@ def get_ppt_download_link(topic):
         ppt_contents = file.read()
 
     b64_ppt = base64.b64encode(ppt_contents).decode()
-    return f'<a href="data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,{b64_ppt}" download="{ppt_filename}">Download the PowerPoint Presentation</a>'
-
+    return f'data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,{b64_ppt}'
 
 
 def generateppt(topic):
