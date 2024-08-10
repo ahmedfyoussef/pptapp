@@ -3,6 +3,7 @@ import base64
 import pptx
 from pptx.util import Inches, Pt
 import os
+from datetime import datetime
 
  
 # Define custom formatting options
@@ -44,7 +45,11 @@ def create_presentation(topic, slide_titles, slide_contents):
         slide.shapes.title.text = slide_title
         slide.shapes.placeholders[1].text = slide_content
 
-    prs.save(f"{topic}_presentation.pptx")
+    if not os.path.exists('ppts'):
+    os.makedirs('ppts')
+    now = datetime.now().strftime("%d_%m_%Y_%H_%M")
+    prs.save(f"ppts/{topic}_presentation_{now}.pptx")
+    #prs.save(f"{topic}_presentation.pptx")
 
 
 def get_ppt_download_link(topic):
