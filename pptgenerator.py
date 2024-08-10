@@ -49,7 +49,7 @@ def create_presentation(topic, slide_titles, slide_contents):
        os.makedirs('ppts')
     now = datetime.now().strftime("%d_%m_%Y_%H_%M")
     prs.save(f"ppts/{topic}_presentation_{now}.pptx")
-    filename = f"ppts/{topic}_presentation_{now}
+    filename = f"ppts/{topic}_presentation_{now}.pptx"
      
     #prs.save(f"{topic}_presentation.pptx")
     return filename
@@ -57,7 +57,7 @@ def create_presentation(topic, slide_titles, slide_contents):
 
 def get_ppt_download_link(filename):
     #ppt_filename = f"{topic}_presentation.pptx"
-    ppt_filename = f"ppts/{filename}.pptx"
+    ppt_filename = filename
 
 
     with open(ppt_filename, "rb") as file:
