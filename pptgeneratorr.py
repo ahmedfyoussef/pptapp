@@ -48,7 +48,7 @@ def create_presentation(topic, slide_titles, slide_contents):
         slide.shapes.title.text = slide_title
         slide.shapes.placeholders[1].text = slide_content
         ##
-        slide_text = f"{title}\n{content}"
+        slide_text = f"{slide_title}\n{slide_content}"
         text_content.append(slide_text)
         ##
 
