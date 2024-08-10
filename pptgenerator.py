@@ -49,11 +49,16 @@ def create_presentation(topic, slide_titles, slide_contents):
        os.makedirs('ppts')
     now = datetime.now().strftime("%d_%m_%Y_%H_%M")
     prs.save(f"ppts/{topic}_presentation_{now}.pptx")
+    filename = f"ppts/{topic}_presentation_{now}
+     
     #prs.save(f"{topic}_presentation.pptx")
+    return filename
 
 
-def get_ppt_download_link(topic):
-    ppt_filename = f"{topic}_presentation.pptx"
+def get_ppt_download_link(filename):
+    #ppt_filename = f"{topic}_presentation.pptx"
+    ppt_filename = f"ppts/{filename}.pptx"
+
 
     with open(ppt_filename, "rb") as file:
         ppt_contents = file.read()
@@ -71,13 +76,13 @@ def generateppt(topic):
     print("Slide Title: ", filtered_slide_titles)
     slide_contents = [generate_slide_content(title) for title in filtered_slide_titles]
     print("Slide Contents: ", slide_contents)
-    create_presentation(topic, filtered_slide_titles, slide_contents)
+    filename = create_presentation(topic, filtered_slide_titles, slide_contents)
      
 
     #print("Total Duration: ", round(end - start, 2), " secs")
     print("Presentation generated successfully!")
 
-    download_link = get_ppt_download_link(topic)
+    download_link = get_ppt_download_link(filename)
 
     return download_link
 
