@@ -46,7 +46,7 @@ def create_presentation(topic, slide_titles, slide_contents):
         slide.shapes.placeholders[1].text = slide_content
 
     if not os.path.exists('ppts'):
-    os.makedirs('ppts')
+       os.makedirs('ppts')
     now = datetime.now().strftime("%d_%m_%Y_%H_%M")
     prs.save(f"ppts/{topic}_presentation_{now}.pptx")
     #prs.save(f"{topic}_presentation.pptx")
